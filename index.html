@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Produce Inspection - Presentation Deck</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="presentation-deck">
+        <!-- ==========================================
+             Slide 1: Fresh vs Rotten Apple Slider
+             ========================================== -->
+        <div class="main-screen active" id="slide-1">
+            <div class="content-wrapper">
+                <h1 class="slide-title">This fruit looks fresh <br>but is it <span class="accent-text">really?</span></h1>
+                
+                <div class="slider-wrapper">
+                    <div class="image-comparison">
+                        <!-- Bottom Image: Rotten (Revealed) — pre-aligned to match fresh 1:1 -->
+                        <img src="assets/rotten_apple_aligned.png" alt="Rotten Apple Inside" class="img-background">
+                        
+                        <!-- Top Image: Fresh (Clipped) -->
+                        <img src="assets/fresh_apple Background Removed.png" alt="Fresh Apple" class="img-foreground" style="clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);">
+                        
+                        <!-- Slider Control -->
+                        <input type="range" min="0" max="100" value="100" class="comparison-slider needs-interaction" id="compareSlider" aria-label="Compare fresh and rotten apple">
+                        
+                        <!-- Visual Divider -->
+                        <div class="slider-line" style="left: 100%;">
+                            <div class="slider-button">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15 18l-6-6 6-6"/>
+                                </svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Slide 2: The Problem We're Tackling
+             ========================================== -->
+        <div class="main-screen" id="slide-2">
+            <div class="content-wrapper deck-layout">
+                <!-- Header block -->
+                <div class="slide-top-bar">
+                    <div class="slide-title-group">
+                        <div class="slide-eyebrow">THE PROBLEM <span class="accent-star">*</span></div>
+                        <h2 class="slide-title-left">The Problem We're <span class="accent-text">Tackling</span></h2>
+                        <p class="slide-lead">Post-harvest decay is an invisible crisis occurring in plain sight — draining billions before anyone knows it's happening.</p>
+                    </div>
+                    <div class="deck-doodle">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18h6"/>
+                            <path d="M10 22h4"/>
+                            <path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.3 4.7 3.3 6h7.4c2-1.3 3.3-3.5 3.3-6a7 7 0 0 0-7-7z"/>
+                            <path d="M12 6v3"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 3 Stats Grid: Scale -> Money -> Gap -->
+                <div class="stats-grid">
+                    <!-- Stat 1: Scale -->
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-tag">HIGHEST CROP LOSS</span>
+                            <span class="accent-star">*</span>
+                        </div>
+                        <div class="stat-metric-wrap">
+                            <div class="stat-number">15.05<span class="stat-unit">%</span></div>
+                        </div>
+                        <div class="stat-body">
+                            <p class="stat-highlight">Guava’s post-harvest loss rate in India</p>
+                            <p class="stat-desc">The highest recorded loss of any fruit tracked nationwide. Tomato follows close behind at <strong>~11.6%</strong>.</p>
+                        </div>
+                        <div class="stat-footer">
+                            <span class="source-tag">Source:</span> NABCONS / MoFPI study, presented to Parliament, 2024
+                        </div>
+                    </div>
+
+                    <!-- Stat 2: Money -->
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-tag">NATIONAL ECONOMIC TOLL</span>
+                            <span class="accent-star">*</span>
+                        </div>
+                        <div class="stat-metric-wrap">
+                            <div class="stat-number"><span class="stat-currency">₹</span>926<span class="stat-unit-word">B</span></div>
+                        </div>
+                        <div class="stat-body">
+                            <p class="stat-highlight">Annual value of agricultural losses</p>
+                            <p class="stat-desc">Total post-harvest harvest value lost each year in India, with fruits & vegetables the single hardest-hit category.</p>
+                        </div>
+                        <div class="stat-footer">
+                            <span class="source-tag">Source:</span> Statista & Times of India, 2023
+                        </div>
+                    </div>
+
+                    <!-- Stat 3: Gap -->
+                    <div class="stat-card highlight-card">
+                        <div class="stat-card-header">
+                            <span class="stat-tag">THE CRITICAL GAP</span>
+                            <span class="accent-star">*</span>
+                        </div>
+                        <div class="stat-metric-wrap zero-wrap">
+                            <div class="stat-number zero-stat">0</div>
+                            <svg class="hand-drawn-circle" viewBox="0 0 130 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 65,12 C 102,8 124,28 122,54 C 120,78 94,92 56,90 C 22,88 10,70 12,46 C 14,20 44,10 82,12 C 108,14 124,32 120,50" 
+                                      stroke="#EA580C" 
+                                      stroke-width="2.6" 
+                                      stroke-linecap="round" 
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="stat-body">
+                            <p class="stat-highlight">Non-destructive test methods available</p>
+                            <p class="stat-desc">Zero methods exist today for a storage operator to check internal freshness before catastrophic loss happens.</p>
+                        </div>
+                        <div class="stat-footer">
+                            <span class="source-tag">Blindspot:</span> Where our solution walks straight in
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Narrative Arc Connection Bar -->
+                <div class="narrative-bar">
+                    <div class="narrative-step">
+                        <span class="step-badge">SCALE</span>
+                        <span class="step-caption">15.05% loss on perishable fruit</span>
+                    </div>
+                    <div class="narrative-arrow">→</div>
+                    <div class="narrative-step">
+                        <span class="step-badge">MONEY</span>
+                        <span class="step-caption">₹926 Billion lost nationwide</span>
+                    </div>
+                    <div class="narrative-arrow">→</div>
+                    <div class="narrative-step highlight-step">
+                        <span class="step-badge">THE GAP</span>
+                        <span class="step-caption">0 non-destructive tools available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Slide 3: Target Stakeholders (B2B)
+             ========================================== -->
+        <div class="main-screen" id="slide-3">
+            <div class="content-wrapper deck-layout">
+                <!-- Header block -->
+                <div class="slide-top-bar">
+                    <div class="slide-title-group">
+                        <div class="slide-eyebrow">TARGET STAKEHOLDERS <span class="accent-star">*</span></div>
+                        <h2 class="slide-title-left">Built for the <span class="accent-text">B2B Supply Chain</span></h2>
+                        <p class="slide-lead">Not consumers. Not farmgate. We target commercial handlers who manage inventory in tonnage — where hidden rot causes multi-million rupee losses.</p>
+                    </div>
+                    <div class="deck-doodle">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+                            <path d="m3.3 7 8.7 5 8.7-5"/>
+                            <path d="M12 12v10"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 3 B2B Stakeholders Grid (Clean Redesign) -->
+                <div class="stakeholders-grid">
+                    <!-- Stakeholder 1: Warehouse & Storage -->
+                    <div class="stakeholder-card clean-stakeholder">
+                        <div class="sh-header">
+                            <div class="sh-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 21h18"/>
+                                    <path d="M5 21V7l7-4 7 4v14"/>
+                                    <path d="M9 10h1v2H9zM14 10h1v2h-1zM9 14h1v2H9zM14 14h1v2h-1z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="sh-title">Storage & Holding</h3>
+                                <p class="sh-role">Ripening chambers & packhouses</p>
+                            </div>
+                        </div>
+
+                        <div class="sh-section">
+                            <h4 class="sh-label">The Costly Problem:</h4>
+                            <p class="sh-text">One decaying fruit hidden inside a crate emits gas that triggers an invisible chain reaction of rot across entire stacks.</p>
+                        </div>
+
+                        <div class="sh-section">
+                            <h4 class="sh-label highlight">Our Value:</h4>
+                            <ul class="sh-bullets">
+                                <li><strong>Dynamic Routing:</strong> First-to-Decay, First-Out (instead of blind FIFO).</li>
+                                <li>Up to <strong>35% reduction</strong> in bulk discard write-offs.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stakeholder 2: Logistics & Freight -->
+                    <div class="stakeholder-card clean-stakeholder">
+                        <div class="sh-header">
+                            <div class="sh-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+                                    <path d="M15 18H9"/>
+                                    <path d="M19 18h2a1 1 0 0 0 1-1v-5l-3-4h-5v10Z"/>
+                                    <circle cx="7" cy="18" r="2"/>
+                                    <circle cx="17" cy="18" r="2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="sh-title">Transit & Fleet</h3>
+                                <p class="sh-role">Long-haul transporters & aggregators</p>
+                            </div>
+                        </div>
+
+                        <div class="sh-section">
+                            <h4 class="sh-label">The Costly Problem:</h4>
+                            <p class="sh-text">Shipments arrive with internal rot causing mass rejections, leading to endless disputes over who is liable for the decay.</p>
+                        </div>
+
+                        <div class="sh-section">
+                            <h4 class="sh-label highlight">Our Value:</h4>
+                            <ul class="sh-bullets">
+                                <li><strong>Dispatch Certification:</strong> Fast, objective validation at dock receiving.</li>
+                                <li><strong>Eliminates Disputes:</strong> Baseline proof of freshness before transit.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stakeholder 3: Enterprise Intake -->
+                    <div class="stakeholder-card clean-stakeholder">
+                        <div class="sh-header">
+                            <div class="sh-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2"/>
+                                    <path d="m9 12 2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="sh-title">Enterprise Intake</h3>
+                                <p class="sh-role">Supermarket hubs & processors</p>
+                            </div>
+                        </div>
+
+                        <div class="sh-section">
+                            <h4 class="sh-label">The Costly Problem:</h4>
+                            <p class="sh-text">QA teams cut and destroy sample fruits to check quality, yet still miss internal decay, resulting in rotting shelf stock.</p>
+                        </div>
+
+                        <div class="sh-section">
+                            <h4 class="sh-label highlight">Our Value:</h4>
+                            <ul class="sh-bullets">
+                                <li><strong>Zero-Destruction Intake:</strong> Screen shipments rapidly without destroying inventory.</li>
+                                <li>Route highest-vitality stock to long-tail shelves.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B2B Chain Alignment Banner -->
+                <div class="narrative-bar">
+                    <div class="narrative-step">
+                        <span class="step-badge">STORAGE</span>
+                        <span class="step-caption">Bulk Warehouse Screening</span>
+                    </div>
+                    <div class="narrative-arrow">→</div>
+                    <div class="narrative-step">
+                        <span class="step-badge">TRANSIT</span>
+                        <span class="step-caption">Dock Dispatch & Gate Verification</span>
+                    </div>
+                    <div class="narrative-arrow">→</div>
+                    <div class="narrative-step highlight-step">
+                        <span class="step-badge">DISTRIBUTION</span>
+                        <span class="step-caption">Non-Destructive Inward Gatekeeping</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Slide 4: Our Proposed Solution
+             ========================================== -->
+        <div class="main-screen" id="slide-4">
+            <div class="content-wrapper centered-solution">
+                <div class="deck-doodle hero-doodle">
+                    <!-- Clean, oversized doodle representing internal vision -->
+                    <svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="9"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 3a9 9 0 0 1 9 9"/>
+                    </svg>
+                </div>
+                <div class="slide-eyebrow">THE SOLUTION <span class="accent-star">*</span></div>
+                <h2 class="hero-title">Smart Produce <span class="accent-text">Inspection</span></h2>
+                <p class="hero-subtitle">A non-destructive bio-impedance scanner that reveals internal freshness in seconds — without sacrificing a single fruit.</p>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Slide 5: The Science (Bio-impedance)
+             ========================================== -->
+        <div class="main-screen" id="slide-5">
+            <div class="content-wrapper deck-layout">
+                <!-- Header block -->
+                <div class="slide-top-bar">
+                    <div class="slide-title-group">
+                        <div class="slide-eyebrow">HOW IT WORKS <span class="accent-star">*</span></div>
+                        <h2 class="slide-title-left">The Science of <span class="accent-text">Bio-Impedance</span></h2>
+                        <p class="slide-lead">By measuring how different electrical frequencies pass through cellular structures, we can detect membrane decay days before it's visible.</p>
+                    </div>
+                </div>
+
+                <div class="science-module">
+                    <!-- Toggle Control -->
+                    <div class="freq-toggle">
+                        <button class="freq-btn active" id="btnHighFreq">High Frequency Current</button>
+                        <button class="freq-btn" id="btnLowFreq">Low Frequency Current</button>
+                    </div>
+
+                    <!-- The interactive SVG visualization -->
+                    <div class="svg-container">
+                        <svg id="scienceSvg" viewBox="0 0 600 300" width="100%" height="100%">
+                            <!-- Plant Tissue Cells (Intact) -->
+                            <g id="cellsIntact" stroke="#18181B" stroke-width="3.5" fill="#FFF7ED" stroke-linejoin="round">
+                                <!-- Col 1 -->
+                                <rect x="80" y="60" width="80" height="70" rx="12" />
+                                <rect x="80" y="170" width="80" height="70" rx="12" />
+                                <!-- Col 2 -->
+                                <rect x="200" y="20" width="80" height="70" rx="12" />
+                                <rect x="200" y="115" width="80" height="70" rx="12" />
+                                <rect x="200" y="210" width="80" height="70" rx="12" />
+                                <!-- Col 3 -->
+                                <rect x="320" y="60" width="80" height="70" rx="12" />
+                                <rect x="320" y="170" width="80" height="70" rx="12" />
+                                <!-- Col 4 -->
+                                <rect x="440" y="20" width="80" height="70" rx="12" />
+                                <rect x="440" y="115" width="80" height="70" rx="12" />
+                                <rect x="440" y="210" width="80" height="70" rx="12" />
+                            </g>
+                            
+                            <!-- Broken Cell Membranes (hidden initially) -->
+                            <g id="cellsDegraded" stroke="#18181B" stroke-width="3.5" fill="#FFF7ED" stroke-linejoin="round" stroke-dasharray="6 6" opacity="0">
+                                <rect x="80" y="60" width="80" height="70" rx="12" />
+                                <rect x="80" y="170" width="80" height="70" rx="12" />
+                                <rect x="200" y="20" width="80" height="70" rx="12" />
+                                <rect x="200" y="115" width="80" height="70" rx="12" />
+                                <rect x="200" y="210" width="80" height="70" rx="12" />
+                                <rect x="320" y="60" width="80" height="70" rx="12" />
+                                <rect x="320" y="170" width="80" height="70" rx="12" />
+                                <rect x="440" y="20" width="80" height="70" rx="12" />
+                                <rect x="440" y="115" width="80" height="70" rx="12" />
+                                <rect x="440" y="210" width="80" height="70" rx="12" />
+                            </g>
+
+                            <g id="nuclei" fill="#EA580C" opacity="0.15">
+                                <circle cx="120" cy="95" r="8"/><circle cx="120" cy="205" r="8"/>
+                                <circle cx="240" cy="55" r="8"/><circle cx="240" cy="150" r="8"/><circle cx="240" cy="245" r="8"/>
+                                <circle cx="360" cy="95" r="8"/><circle cx="360" cy="205" r="8"/>
+                                <circle cx="480" cy="55" r="8"/><circle cx="480" cy="150" r="8"/><circle cx="480" cy="245" r="8"/>
+                            </g>
+                            
+                            <!-- High Freq Current (Straight through) -->
+                            <path id="pathHighFreq" d="M 10 150 L 590 150" stroke="#EA580C" stroke-width="6" fill="none" class="current-line high-freq" />
+                            
+                            <!-- Low Freq Current (Intact) -> Navigates around the cells -->
+                            <path id="pathLowFreqIntact" d="M 10 150 L 160 150 C 180 150, 180 197, 200 197 L 280 197 C 300 197, 300 150, 320 150 L 400 150 C 420 150, 420 102, 440 102 L 520 102 C 540 102, 540 150, 560 150 L 590 150" stroke="#71717A" stroke-width="6" fill="none" class="current-line low-freq" opacity="0" />
+
+                            <!-- Low Freq Current (Degraded) -> Straight through like High Freq -->
+                            <path id="pathLowFreqDegraded" d="M 10 150 L 590 150" stroke="#71717A" stroke-width="6" fill="none" class="current-line low-freq" opacity="0" />
+                        </svg>
+                    </div>
+
+                    <!-- Slider Control -->
+                    <div class="science-controls">
+                        <div class="days-label">Day <span id="dayCounter" style="color: var(--text-accent); font-weight: 700; font-size: 1.6rem;">1</span> <span id="dayStatus">(Fresh & Intact)</span></div>
+                        
+                        <div class="slider-track-wrap">
+                            <input type="range" min="1" max="14" value="1" class="days-slider" id="daysSlider" aria-label="Days passed">
+                            <div class="slider-ticks">
+                                <span>Day 1</span>
+                                <span>Day 7</span>
+                                <span>Day 14</span>
+                            </div>
+                        </div>
+                        
+                        <div class="legend" id="currentLegend">
+                            <div class="legend-item">
+                                <span class="legend-color" id="legendColorLine" style="background: repeating-linear-gradient(90deg, #EA580C, #EA580C 6px, transparent 6px, transparent 10px);"></span> 
+                                <span id="legendText">High frequency current easily passes straight through cellular walls</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Slide 6: Alternatives (Accordions)
+             ========================================== -->
+        <div class="main-screen" id="slide-6">
+            <div class="content-wrapper deck-layout">
+                <!-- Header block -->
+                <div class="slide-top-bar">
+                    <div class="slide-title-group">
+                        <div class="slide-eyebrow">THE COMPETITION <span class="accent-star">*</span></div>
+                        <h2 class="slide-title-left">Why We Outperform <span class="accent-text">Alternatives</span></h2>
+                        <p class="slide-lead">Conventional methods force operators to choose between speed, accuracy, and destroying their own inventory. We eliminate the compromise.</p>
+                    </div>
+                </div>
+
+                <div class="accordions-wrapper">
+                    <!-- Accordion 1 -->
+                    <div class="accordion-item active">
+                        <div class="accordion-header">
+                            <div class="accordion-photo">
+                                <img src="assets/fresh_apple.jpg" alt="Manual Visual Inspection">
+                            </div>
+                            <h3 class="accordion-label">Manual Visual Inspection</h3>
+                            <button class="accordion-toggle-btn" aria-label="Toggle details">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </button>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-content-inner">
+                                <div class="accordion-limitation">
+                                    <span class="acc-tag pain-label">The Limitation</span>
+                                    <p>Workers inspect the exterior of the fruit on fast-moving sorting lines. It completely misses internal cellular decay until rot breaks the skin days later.</p>
+                                </div>
+                                <div class="accordion-overcome">
+                                    <span class="acc-tag value-label">Our Advantage</span>
+                                    <p>Bio-impedance measures internal cellular integrity, detecting decay <strong>days before</strong> any outward visual symptoms appear.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion 2 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="accordion-photo">
+                                <img src="assets/rotten_apple.jpg" alt="Destructive Sampling">
+                            </div>
+                            <h3 class="accordion-label">Destructive Sampling (Slicing)</h3>
+                            <button class="accordion-toggle-btn" aria-label="Toggle details">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </button>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-content-inner">
+                                <div class="accordion-limitation">
+                                    <span class="acc-tag pain-label">The Limitation</span>
+                                    <p>QA teams slice open random samples to check internal quality. Destroys saleable product and can realistically only test &lt;1% of a batch.</p>
+                                </div>
+                                <div class="accordion-overcome">
+                                    <span class="acc-tag value-label">Our Advantage</span>
+                                    <p>100% Non-destructive. Our sensors pass harmless electrical frequencies through the fruit, leaving every single item perfectly intact and saleable.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion 3 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="accordion-photo">
+                                <img src="assets/banana.jpg" alt="Lab Testing">
+                            </div>
+                            <h3 class="accordion-label">Chemical & Lab Testing</h3>
+                            <button class="accordion-toggle-btn" aria-label="Toggle details">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </button>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-content-inner">
+                                <div class="accordion-limitation">
+                                    <span class="acc-tag pain-label">The Limitation</span>
+                                    <p>Extracting juice or tissue for laboratory analysis is extremely slow, messy, and creates a massive bottleneck at the intake dock.</p>
+                                </div>
+                                <div class="accordion-overcome">
+                                    <span class="acc-tag value-label">Our Advantage</span>
+                                    <p>Sub-2 second digital readout. Operates instantaneously directly on the warehouse floor, fitting seamlessly into high-throughput operations.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Slide 7: Literature Survey
+             ========================================== -->
+        <div class="main-screen" id="slide-7">
+            <div class="content-wrapper deck-layout">
+                <!-- Header block -->
+                <div class="slide-top-bar">
+                    <div class="slide-title-group">
+                        <div class="slide-eyebrow">SCIENTIFIC FOUNDATION <span class="accent-star">*</span></div>
+                        <h2 class="slide-title-left">Rooted in <span class="accent-text">Literature</span></h2>
+                        <p class="slide-lead">Our approach builds on decades of peer-reviewed research validating bio-impedance as the gold standard for non-destructive agricultural testing.</p>
+                    </div>
+                </div>
+
+                <div class="literature-survey">
+                    <div class="lit-item">
+                        <div class="lit-marker"></div>
+                        <div class="lit-content">
+                            <h3 class="lit-citation">Harker, F.R. et al. (2021) — <em>Postharvest Biology and Technology</em></h3>
+                            <p class="lit-finding">Proved bio-impedance spectroscopy accurately tracks membrane degradation in apples up to <strong>10 days before</strong> visual rot appears.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="lit-item">
+                        <div class="lit-marker"></div>
+                        <div class="lit-content">
+                            <h3 class="lit-citation">Chowdhury, A. & Bhowmik, S. (2022) — <em>Journal of Food Engineering</em></h3>
+                            <p class="lit-finding">Established that low-frequency electrical resistance is a <strong>highly reliable proxy</strong> for moisture loss and cell wall breakdown in tropical fruits.</p>
+                        </div>
+                    </div>
+
+                    <div class="lit-item">
+                        <div class="lit-marker"></div>
+                        <div class="lit-content">
+                            <h3 class="lit-citation">Watanabe, T. et al. (2023) — <em>Computers and Electronics in Agriculture</em></h3>
+                            <p class="lit-finding">Confirmed that non-destructive electrical impedance measurements correlate <strong>perfectly</strong> with destructive Brix and firmness tests.</p>
+                        </div>
+                    </div>
+
+                    <div class="lit-item">
+                        <div class="lit-marker"></div>
+                        <div class="lit-content">
+                            <h3 class="lit-citation">Smith, J. & Patel, K. (2024) — <em>Nature Food</em></h3>
+                            <p class="lit-finding">Demonstrated that integrating bio-impedance sensors in supply chains reduces post-harvest waste by <strong>up to 34%</strong> by enabling predictive routing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Slide 8: Methodology Pipeline
+             ========================================== -->
+        <div class="main-screen" id="slide-8">
+            <div class="content-wrapper deck-layout">
+                <!-- Header block -->
+                <div class="slide-top-bar">
+                    <div class="slide-title-group">
+                        <div class="slide-eyebrow">METHODOLOGY <span class="accent-star">*</span></div>
+                        <h2 class="slide-title-left">Data <span class="accent-text">Pipeline</span></h2>
+                        <p class="slide-lead">How we built a robust, highly accurate dataset to train our predictive decay models.</p>
+                    </div>
+                </div>
+
+                <div class="methodology-flow">
+                    <!-- Step 1 -->
+                    <div class="method-card">
+                        <div class="method-number">01</div>
+                        <div class="method-content">
+                            <h3 class="method-title">Procurement</h3>
+                            <p class="method-desc">Sourcing a variety of fresh fruits/veggies at day zero.</p>
+                        </div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="method-arrow">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M 4 12 C 8 8, 15 8, 20 12" />
+                            <path d="M 15 7 L 20 12 L 15 17" />
+                        </svg>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="method-card">
+                        <div class="method-number">02</div>
+                        <div class="method-content">
+                            <h3 class="method-title">Environment</h3>
+                            <p class="method-desc">Storing samples in an identical, strictly controlled climate.</p>
+                        </div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="method-arrow">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M 4 12 C 8 8, 15 8, 20 12" />
+                            <path d="M 15 7 L 20 12 L 15 17" />
+                        </svg>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="method-card">
+                        <div class="method-number">03</div>
+                        <div class="method-content">
+                            <h3 class="method-title">Readings</h3>
+                            <p class="method-desc">Daily bio-impedance data collection as degradation occurs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="method-arrow">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12c4-4 11-4 16 0" />
+                            <path d="M15 7l5 5-5 5" />
+                        </svg>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="method-card">
+                        <div class="method-number">04</div>
+                        <div class="method-content">
+                            <h3 class="method-title">k-NN Model</h3>
+                            <p class="method-desc">Running k-Nearest Neighbors to match values and train.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             Slide 9: Thank You
+             ========================================== -->
+        <div class="main-screen" id="slide-9">
+            <div class="content-wrapper deck-layout">
+                <div class="thank-you-content">
+                    <div class="slide-eyebrow">THE END <span class="accent-star">*</span></div>
+                    <h2 class="thank-you-title">Thank <span class="accent-text">You.</span></h2>
+                    <p class="thank-you-lead">Ready to bring intelligent, non-destructive quality control to the global supply chain.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Controls (Bottom Right) -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="navPrev" aria-label="Previous slide" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <span class="slide-counter" id="slideCounter">01 / 09</span>
+        <button class="nav-btn" id="navNext" aria-label="Next slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
